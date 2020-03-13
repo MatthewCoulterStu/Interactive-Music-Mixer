@@ -1,107 +1,29 @@
 @charset "UTF-8";
 body {
-	background-image: url(../images/puzzle2.jpg);
 	background-repeat: repeat;
-	background-color: #333;
+	background-color: #333333;
 	color: #FFF;
 	font-family: 'Luckiest Guy', sans-serif;
 	font-size: 16px;
 }
 
-.hidden { display: none }
-
-#game-boards { width: 100%; text-align: center; }
-
-.character-menu,.window {
-	margin-top: 40px;
-	display: inline-block;
-	border: medium solid #333;
-	background-color: #000;
-	color: inherit;
-	overflow: hidden;
-}
-
-.window { 
-	width: 600px;
-	height: 700px;
-
-}
-.character-menu { 
-	width: 500px; 
-	height: 700px;
-	margin-right: 20px; 
-}
-
-#character-lineup, #enemy-window {
-	flex-direction: column;
-	border: medium solid #333;
-	background-color: #fff;
-	color: inherit;
-	overflow: hidden;
-}
-#character-lineup { 
-	margin-top: 100px;
-	margin-left: 50px;
-	margin-right: 50px;
-	width: 500px;
-	height: 150px;
-
- }
-
- #enemy-window{
- 	margin-top: 40px;
- 	margin-left: 100px;
-	margin-right: 150px;
- 	width: 400px;
-	height: 300px;
-
-
- }
-
-.character-image {
-	width: 40%;
-	display: block;
-	padding: 8px;
-	cursor: pointer;
+.instrument {
 }
 
 
-header {
-	position: relative;
-	top: 20px;
-	width: 600px;
-	margin: 0px auto;
-	text-align: center;
+#instrumentBox  {
+	margin-top: 5%;
+	margin-left: 3%;
+	display: grid;
+	max-width: 800px;
+	background-color: #efefef;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
 }
 
-h2 {
-	font-size: 3.25em;
-  	letter-spacing: 3px;
-	margin: 10px 0
-	text-align:center;
+button {
+	grid-column: 4/1;
 }
 
-header p, footer p { 
-	font-size: 1.7em; 
-	letter-spacing: 2px; 
-	margin: 10px 0 
-}
 
-footer {
-	position: relative;
-	width: 600px;
-	margin: 65px auto 0;
-	text-align: center;
-}
-
-#buttonHolder { margin: 0px auto; text-align: center; }
-
-#buttonHolder img {
-	margin-left: 5px;
-	margin-right: 5px;
-	border-radius: 20px;
-	border: thin solid #333;
-	cursor: pointer;
-}
-
-#buttonHolder img:hover { opacity: .5; }
