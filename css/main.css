@@ -7,7 +7,34 @@ body {
 	font-size: 16px;
 }
 
-.instrument {
+.static {
+	position: absolute;
+}
+
+.enemy {
+	margin-left: 13%;
+	margin-top: 6%;
+}
+
+#container {
+	display: flex;
+	flex-direction: row;
+}
+
+#enemyscreen {
+	margin-left: 10%;
+	margin-top: 5%;
+}
+
+#activeSlot {
+	margin-top: 70%;
+	margin-right: 20%;
+	display: flex;
+	flex-direction: row;
+}
+
+.background {
+	margin-left: 5%;
 }
 
 

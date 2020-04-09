@@ -5,10 +5,27 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
 </head>
 <body>
+	<div id="container">
 	<div id="instrumentBox">
-		<object class="instrument"><img src="images/drums1.png"></object>
+		<object class="instrument"><img src="images/drums1.png" src="img_logo.gif" draggable="true" ondragstart="drag(event)"></object>
 		<object class="instrument"><img src="images/drums2.png"></object>
 		<object class="instrument"><img src="images/drums3.png"></object>
 		<object class="instrument"><img src="images/melody1.png"></object>
@@ -23,20 +40,22 @@
 		<button>Reset</button>
 	</div>
 	<div id="enemyscreen">
-		<img src="images/screenbackground.png">
-		<img src="images/enemy.png">
-	</div>
-	<div id="activeBar">
-		<object class="activeSlot"><img src="images/drumPlaceholder.png"></object>
-		<object class="activeSlot"><img src="images/melodyPlaceholder.png"></object>
-		<object class="activeSlot"><img src="images/harmonyPlaceholder.png"></object>
-		<object class="activeSlot"><img src="images/effectPlaceholder.png"></object>
+		<img  class="static background" src="images/screenbackground.jpg">
+		<img class="static enemy"src="images/enemy.png">
+		<div id="activeSlot" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+		<object><img src="images/drumPlaceholder.png"></object>
+		<object><img src="images/melodyPlaceholder.png"></object>
+		<object><img src="images/harmonyPlaceholder.png"></object>
+		<object><img src="images/effectPlaceholder.png"></object>
+		</div>
 	</div>
 
 	<div id="mediaBar">
 		<img src="images/twitter.png">
 		<img src="images/facebook.png">
 		<img src="images/instagram.png">
+	</div>
 	</div>
 	
 <script src="js/main.js"></script>
