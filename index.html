@@ -5,32 +5,70 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript">
+
+function refreshPage(){
+    window.location.reload();
+} 
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
 </head>
 <body>
-	<div id="instrumentBox">
-		<object class="instrument"><img src="images/drums1.png"></object>
-		<object class="instrument"><img src="images/drums2.png"></object>
-		<object class="instrument"><img src="images/drums3.png"></object>
-		<object class="instrument"><img src="images/melody1.png"></object>
-		<object class="instrument"><img src="images/melody2.png"></object>
-		<object class="instrument"><img src="images/melody3.png"></object>
-		<object class="instrument"><img src="images/harmony1.png"></object>
-		<object class="instrument"><img src="images/harmony2.png"></object>
-		<object class="instrument"><img src="images/harmony3.png"></object>
-		<object class="instrument"><img src="images/effect1.png"></object>
-		<object class="instrument"><img src="images/effect2.png"></object>
-		<object class="instrument"><img src="images/effect3.png"></object>
-		<button>Reset</button>
+
+	<audio id="bgm">
+	<source src="audio/bgm.mp3" type="audio/mp3">
+	</audio>
+	<div id="container">
+	<div id="instrumentBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<object class="instrument"><img src="images/drums1.png" src="img_logo.gif" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/drums2.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/drums3.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/melody1.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/melody2.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/melody3.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/harmony1.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/harmony2.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/harmony3.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/effect1.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/effect2.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/effect3.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<div id="reset">
+		<h2 onClick="refreshPage()">Reset</h2>
+		</div>
 	</div>
+
 	<div id="enemyscreen">
-		<img src="images/screenbackground.png">
-		<img src="images/enemy.png">
-	</div>
-	<div id="activeBar">
-		<object class="activeSlot"><img src="images/drumPlaceholder.png"></object>
-		<object class="activeSlot"><img src="images/melodyPlaceholder.png"></object>
-		<object class="activeSlot"><img src="images/harmonyPlaceholder.png"></object>
-		<object class="activeSlot"><img src="images/effectPlaceholder.png"></object>
+		<img  class="static background" src="images/screenbackground.jpg">
+		<img class="static enemy"src="images/enemy.png">
+		<div id="activeSlot">
+			<div class="dropSpot" ondrop="drop(event), bgmFunction(event)" ondragover="allowDrop(event)">
+		<object></object>
+			</div>
+			<div class="dropSpot" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<object></object>
+			</div>
+			<div class="dropSpot" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<object></object>
+			</div>
+			<div class="dropSpot" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<object></object>
+			</div>
+		</div>
 	</div>
 
 	<div id="mediaBar">
@@ -38,7 +76,20 @@
 		<img src="images/facebook.png">
 		<img src="images/instagram.png">
 	</div>
+	</div>
 	
-<script src="js/main.js"></script>
+<script type="text/javascript">
+
+	var bgm = document.getElementById("bgm");
+
+function bgmFunction(ev){
+
+	bgm.play();
+
+
+
+}
+
+</script>
 </body>
 </html>
