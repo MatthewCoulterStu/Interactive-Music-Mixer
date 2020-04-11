@@ -24,29 +24,75 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
+  bgmFunction(ev.target.childNodes[0].id);
 }
 </script>
 
 </head>
 <body>
 
-	<audio id="bgm">
-	<source src="audio/bgm.mp3" type="audio/mp3">
+	<audio id="drums1sound">
+	<source src="audio/drums1.mp3" type="audio/mp3">
 	</audio>
+
+	<audio id="drums2sound">
+	<source src="audio/drums2.mp3" type="audio/mp3">
+	</audio>
+
+	<audio id="drums3sound">
+	<source src="audio/drums3.mp3" type="audio/mp3">
+	</audio>
+
+	<audio id="harmony1sound">
+	<source src="audio/harmony1.mp3" type="audio/mp3">
+	</audio>
+	
+	<audio id="harmony2sound">
+	<source src="audio/harmony2.mp3" type="audio/mp3">
+	</audio>
+	
+	<audio id="harmony3sound">
+	<source src="audio/harmony3.mp3" type="audio/mp3">
+	</audio>
+	
+	<audio id="melody1sound">
+	<source src="audio/melody1.mp3" type="audio/mp3">
+	</audio>
+	
+	<audio id="melody2sound">
+	<source src="audio/melody2.mp3" type="audio/mp3">
+	</audio>
+	
+	<audio id="melody3sound">
+	<source src="audio/melody3.mp3" type="audio/mp3">
+	</audio>
+	
+	<audio id="effect1sound">
+	<source src="audio/effect1.mp3" type="audio/mp3">
+	</audio>
+	
+	<audio id="effect2sound">
+	<source src="audio/effect2.mp3" type="audio/mp3">
+	</audio>
+	
+	<audio id="effect3sound">
+	<source src="audio/effect3.mp3" type="audio/mp3">
+	</audio>
+
 	<div id="container">
 	<div id="instrumentBox" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<object class="instrument"><img src="images/drums1.png" src="img_logo.gif" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/drums2.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/drums3.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/melody1.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/melody2.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/melody3.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/harmony1.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/harmony2.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/harmony3.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/effect1.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/effect2.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
-		<object class="instrument"><img src="images/effect3.png" draggable="true" ondragstart="drag(event)" id="drag1"></object>
+		<object class="instrument"><img src="images/drums1.png" draggable="true" ondragstart="drag(event)" id="drums1"></object>
+		<object class="instrument"><img src="images/drums2.png" draggable="true" ondragstart="drag(event)" id="drums2"></object>
+		<object class="instrument"><img src="images/drums3.png" draggable="true" ondragstart="drag(event)" id="drums3"></object>
+		<object class="instrument"><img src="images/melody1.png" draggable="true" ondragstart="drag(event)" id="melody1"></object>
+		<object class="instrument"><img src="images/melody2.png" draggable="true" ondragstart="drag(event)" id="melody2"></object>
+		<object class="instrument"><img src="images/melody3.png" draggable="true" ondragstart="drag(event)" id="melody3"></object>
+		<object class="instrument"><img src="images/harmony1.png" draggable="true" ondragstart="drag(event)" id="harmony1"></object>
+		<object class="instrument"><img src="images/harmony2.png" draggable="true" ondragstart="drag(event)" id="harmony2"></object>
+		<object class="instrument"><img src="images/harmony3.png" draggable="true" ondragstart="drag(event)" id="harmony3"></object>
+		<object class="instrument"><img src="images/effect1.png" draggable="true" ondragstart="drag(event)" id="effect1"></object>
+		<object class="instrument"><img src="images/effect2.png" draggable="true" ondragstart="drag(event)" id="effect2"></object>
+		<object class="instrument"><img src="images/effect3.png" draggable="true" ondragstart="drag(event)" id="effect3"></object>
 		<div id="reset">
 		<h2 onClick="refreshPage()">Reset</h2>
 		</div>
@@ -59,13 +105,13 @@ function drop(ev) {
 			<div class="dropSpot" ondrop="drop(event), bgmFunction(event)" ondragover="allowDrop(event)">
 		<object></object>
 			</div>
-			<div class="dropSpot" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<div class="dropSpot" ondrop="drop(event), bgmFunction(event)" ondragover="allowDrop(event)">
 		<object></object>
 			</div>
-			<div class="dropSpot" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<div class="dropSpot" ondrop="drop(event), bgmFunction(event)" ondragover="allowDrop(event)">
 		<object></object>
 			</div>
-			<div class="dropSpot" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<div class="dropSpot" ondrop="drop(event), bgmFunction(event)" ondragover="allowDrop(event)">
 		<object></object>
 			</div>
 		</div>
@@ -80,13 +126,12 @@ function drop(ev) {
 	
 <script type="text/javascript">
 
-	var bgm = document.getElementById("bgm");
+	
 
-function bgmFunction(ev){
+function bgmFunction(id){
 
+	var bgm = document.getElementById(id + "sound");
 	bgm.play();
-
-
 
 }
 
