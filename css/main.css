@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
 	background-repeat: repeat;
-	background-color: #333333;
+	background-color: #58665b;
 	color: #FFF;
 	font-family: 'Luckiest Guy', sans-serif;
 	font-size: 16px;
@@ -75,7 +75,7 @@ h2 {
 	margin-left: 3%;
 	display: grid;
 	max-width: 800px;
-	background-color: #efefef;
+	background-color: #bae0c3;
 	grid-template-rows: repeat(3, 1fr);
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 20px;
